@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FastTodo</title>
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="logo">FastTodo</h1>
+      <nav class="view-switch">
+        <button class="view-btn active" data-view="current">Текущая</button>
+        <button class="view-btn" data-view="all">Все задачи</button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Current task view -->
+      <section id="view-current" class="view active">
+        <div id="no-task" class="empty-state hidden">
+          <p>Нет выбранной задачи</p>
+          <p class="hint">Создайте задачу или выберите из списка «Все задачи»</p>
+        </div>
+
+        <div id="task-detail" class="hidden">
+          <div class="task-sticky-header">
+            <nav id="task-nav" class="task-nav hidden" aria-label="Переключение задач">
+              <button type="button" id="btn-prev-task" class="task-nav-btn task-nav-prev">
+                <span class="task-nav-arrow">‹</span>
+                <span id="task-nav-prev-title" class="task-nav-label"></span>
+              </button>
+              <button type="button" id="btn-next-task" class="task-nav-btn task-nav-next">
+                <span id="task-nav-next-title" class="task-nav-label"></span>
+                <span class="task-nav-arrow">›</span>
+              </button>
+            </nav>
+
+            <div class="task-header">
+              <h2 id="task-title"></h2>
+              <button id="btn-delete-task" class="btn-icon" title="Удалить задачу">✕</button>
+            </div>
+
+            <div class="progress-block">
+              <div class="progress-meta">
+                <span id="progress-label">0 из 0</span>
+                <span id="progress-percent" class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div id="progress-bar" class="progress-fill" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <ul id="items-list" class="items-list"></ul>
+
+          <form id="form-add-item" class="add-form">
+            <input type="text" id="item-name" placeholder="Название пункта (или оставьте пустым)">
+            <button type="submit" class="btn-primary">+ Пункт</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- All tasks view -->
+      <section id="view-all" class="view">
+        <form id="form-new-task" class="new-task-form">
+          <input type="text" id="task-name" placeholder="Новая задача..." required>
+          <button type="submit" class="btn-primary">Создать</button>
+        </form>
+
+        <ul id="tasks-list" class="tasks-list"></ul>
+        <div id="all-empty" class="empty-state hidden">
+          <p>Задач пока нет</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
