@@ -21,3 +21,6 @@ Thumbs.db
 # Env
 .env
 .env.*
+
+# Local dev notes
+STYLES.md

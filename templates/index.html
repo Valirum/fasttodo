@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8">
+  <script>
+    (function () {
+      var t = localStorage.getItem("fasttodo:theme") || "dark";
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastTodo</title>
   <link rel="icon" href="/icon.png" type="image/png">
@@ -11,10 +17,34 @@
   <div class="app">
     <header class="header">
       <h1 class="logo">FastTodo</h1>
-      <nav class="view-switch">
-        <button class="view-btn active" data-view="current">Текущая</button>
-        <button class="view-btn" data-view="all">Все задачи</button>
-      </nav>
+      <div class="header-controls">
+        <div class="theme-picker" id="theme-picker">
+          <button
+            type="button"
+            class="theme-picker-btn"
+            id="theme-picker-btn"
+            aria-label="Тема"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+          >
+            <svg class="theme-picker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.63-.73 1.63-1.63 0-.39-.16-.74-.39-1.06-.22-.3-.26-.71-.26-1.01 0-.83.67-1.5 1.5-1.5H14c2.2 0 4-1.8 4-4 0-4.4-3.6-8-8-8z"/>
+              <circle cx="7.5" cy="11.5" r="1.5" fill="currentColor" stroke="none"/>
+              <circle cx="12" cy="8" r="1.5" fill="currentColor" stroke="none"/>
+              <circle cx="16.5" cy="11.5" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </button>
+          <ul class="theme-picker-menu" id="theme-picker-menu" role="listbox" aria-label="Тема" hidden>
+            <li role="option" class="theme-picker-option" data-theme="dark" tabindex="-1">dark</li>
+            <li role="option" class="theme-picker-option" data-theme="light" tabindex="-1">light</li>
+            <li role="option" class="theme-picker-option" data-theme="orange-green" tabindex="-1">orange-green</li>
+          </ul>
+        </div>
+        <nav class="view-switch">
+          <button class="view-btn active" data-view="current">Текущая</button>
+          <button class="view-btn" data-view="all">Все задачи</button>
+        </nav>
+      </div>
     </header>
 
     <main id="main">

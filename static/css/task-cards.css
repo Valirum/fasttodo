@@ -1,0 +1,138 @@
+.tasks-list {
+  list-style: none;
+  margin-top: 0.25rem;
+}
+
+.task-card {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+  transition: var(--transition);
+  color: inherit;
+  overflow: hidden;
+}
+
+.task-list-item.dragging {
+  pointer-events: none;
+}
+
+.task-list-item.dragging .task-card {
+  opacity: 0.45;
+}
+
+.task-list-item.drag-over .task-card {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-glow);
+}
+
+.task-drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  opacity: 0.35;
+  cursor: grab;
+  font-size: 0.85rem;
+  user-select: none;
+  touch-action: none;
+  border-right: 1px solid var(--border);
+  transition: opacity var(--transition), color var(--transition);
+}
+
+.task-drag-handle:hover {
+  opacity: 0.75;
+  color: var(--text);
+}
+
+.task-list-item.dragging .task-drag-handle {
+  cursor: grabbing;
+}
+
+.task-card-body {
+  flex: 1;
+  min-width: 0;
+  padding: 1rem 1.25rem 1rem 0.85rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.task-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.task-card-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.task-card-progress-row .task-card-progress {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-card-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.task-card:hover .task-card-body {
+  background: var(--surface-hover);
+}
+
+.task-card:hover .btn-delete-item {
+  opacity: 1;
+}
+
+.task-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.task-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-glow);
+}
+
+.task-card-track {
+  flex: 1;
+  height: 6px;
+  background: var(--bg);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.task-card-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  transition: width 0.4s ease;
+}
+
+.task-card-fill.complete {
+  background: linear-gradient(90deg, var(--success), var(--success-light));
+}
+
+.task-card-percent {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  min-width: 36px;
+  text-align: right;
+}
+
+.task-card-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}

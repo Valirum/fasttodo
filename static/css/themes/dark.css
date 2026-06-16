@@ -1,0 +1,23 @@
+:root,
+[data-theme="dark"] {
+  --bg: #0f0f12;
+  --surface: #1a1a22;
+  --surface-hover: #22222c;
+  --border: #2a2a36;
+  --text: #e8e8ed;
+  --text-muted: #8888a0;
+  --text-inverse: #ffffff;
+  --accent: #6c5ce7;
+  --accent-light: #a29bfe;
+  --accent-glow: rgba(108, 92, 231, 0.35);
+  --success: #00cec9;
+  --success-light: #55efc4;
+  --success-glow: rgba(0, 206, 201, 0.4);
+  --success-glow-strong: rgba(0, 206, 201, 0.35);
+  --danger: #ff6b6b;
+  --shadow-sticky: rgba(0, 0, 0, 0.35);
+  --shadow-toast: rgba(0, 0, 0, 0.45);
+  --glow-title: rgba(0, 206, 201, 0.55);
+  --toast-from: rgba(0, 206, 201, 0.95);
+  --toast-to: rgba(108, 92, 231, 0.92);
+}

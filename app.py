@@ -1,4 +1,5 @@
 from pathlib import Path
+import argparse
 
 from flask import Flask, jsonify, render_template, request, send_from_directory
 
@@ -227,5 +228,17 @@ def delete_item(item_id):
 
 
 if __name__ == "__main__":
-    init_db()
-    app.run(debug=True, port=5000)
+    parser = argparse.ArgumentParser(description="FastTodo")
+    parser.add_argument(
+        "--host",
+        default="0.0.0.0",
+        help="адрес привязки: 0.0.0.0 — все интерфейсы, 127.0.0.1 — только localhost",
+    )
+    parser.add_argument(
+        "--port",
+        type=int,
+        default=5000,
+        help="порт (по умолчанию 5000)",
+    )
+    args = parser.parse_args()
+    app.run(debug=True, host=args.host, port=args.port)

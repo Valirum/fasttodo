@@ -1,0 +1,22 @@
+[data-theme="orange-green"] {
+  --bg: #141210;
+  --surface: #1f1c18;
+  --surface-hover: #2a2620;
+  --border: #3d3830;
+  --text: #f0ebe3;
+  --text-muted: #9a9288;
+  --text-inverse: #ffffff;
+  --accent: #e67e22;
+  --accent-light: #f39c12;
+  --accent-glow: rgba(230, 126, 34, 0.35);
+  --success: #27ae60;
+  --success-light: #2ecc71;
+  --success-glow: rgba(39, 174, 96, 0.4);
+  --success-glow-strong: rgba(39, 174, 96, 0.35);
+  --danger: #c0392b;
+  --shadow-sticky: rgba(0, 0, 0, 0.35);
+  --shadow-toast: rgba(0, 0, 0, 0.45);
+  --glow-title: rgba(46, 204, 113, 0.5);
+  --toast-from: rgba(230, 126, 34, 0.95);
+  --toast-to: rgba(39, 174, 96, 0.92);
+}

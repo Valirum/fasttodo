@@ -1,4 +1,5 @@
 const STORAGE_KEY = "fasttodo:lastTaskId";
+const THEME_KEY = "fasttodo:theme";
 
 const state = {
   tasks: [],
@@ -110,57 +111,79 @@ function getSingleLineLabelHeight() {
   return 20;
 }
 
-function measureLabelHeight(textarea) {
-  const prev = textarea.style.height;
-  textarea.style.height = "auto";
-  const height = textarea.scrollHeight;
-  textarea.style.height = prev;
+function measureLabelFullHeight(textarea) {
+  const width = textarea.offsetWidth;
+  if (!width) return getSingleLineLabelHeight();
+
+  const clone = textarea.cloneNode(true);
+  clone.value = textarea.value;
+  clone.style.cssText = `
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+    height: auto;
+    max-height: none;
+    width: ${width}px;
+  `;
+  document.body.appendChild(clone);
+  const height = clone.scrollHeight;
+  clone.remove();
   return height;
 }
 
-function labelNeedsExpansion(textarea) {
-  return measureLabelHeight(textarea) > getSingleLineLabelHeight() + 1;
+const expandTimers = new WeakMap();
+const EXPAND_DELAY_MS = 500;
+
+function clearExpandTimer(li) {
+  const id = expandTimers.get(li);
+  if (id) {
+    clearTimeout(id);
+    expandTimers.delete(li);
+  }
 }
 
-function setItemLabelHeight(textarea, height) {
-  textarea.style.height = `${height}px`;
+function scheduleExpand(li) {
+  clearExpandTimer(li);
+  if (!li.classList.contains("can-expand")) return;
+  const id = setTimeout(() => {
+    expandTimers.delete(li);
+    if (li.classList.contains("can-expand")) li.classList.add("is-open");
+  }, EXPAND_DELAY_MS);
+  expandTimers.set(li, id);
 }
 
-function fitItemLabel(textarea) {
-  setItemLabelHeight(textarea, measureLabelHeight(textarea));
-}
-
-function collapseItemLabel(textarea) {
-  setItemLabelHeight(textarea, getSingleLineLabelHeight());
-}
-
-function updateItemLabelHeight(li, textarea) {
-  const active = li.matches(":hover") || document.activeElement === textarea;
-  const shouldExpand = active && labelNeedsExpansion(textarea);
-
-  li.classList.toggle("is-expanded", shouldExpand);
-
-  if (shouldExpand) {
-    fitItemLabel(textarea);
+function refreshItemLabelSizing(textarea) {
+  const li = textarea.closest(".item");
+  if (!li) return;
+  const full = measureLabelFullHeight(textarea);
+  const needs = full > getSingleLineLabelHeight() + 1;
+  li.classList.toggle("can-expand", needs);
+  if (needs) {
+    textarea.style.setProperty("--label-max-height", `${full}px`);
   } else {
-    collapseItemLabel(textarea);
+    textarea.style.removeProperty("--label-max-height");
+    li.classList.remove("is-open");
+    clearExpandTimer(li);
   }
 }
 
 function setupItemLabel(li, textarea, item) {
-  textarea.style.transition = "none";
-  collapseItemLabel(textarea);
-  requestAnimationFrame(() => {
-    textarea.style.transition = "";
+  refreshItemLabelSizing(textarea);
+
+  li.addEventListener("mouseenter", () => scheduleExpand(li));
+  li.addEventListener("mouseleave", () => {
+    clearExpandTimer(li);
+    if (document.activeElement !== textarea) li.classList.remove("is-open");
   });
 
-  li.addEventListener("mouseenter", () => updateItemLabelHeight(li, textarea));
-  li.addEventListener("mouseleave", () => updateItemLabelHeight(li, textarea));
-
-  textarea.addEventListener("focus", () => updateItemLabelHeight(li, textarea));
+  textarea.addEventListener("focus", () => {
+    clearExpandTimer(li);
+    if (li.classList.contains("can-expand")) li.classList.add("is-open");
+  });
   textarea.addEventListener("input", () => {
-    if (document.activeElement === textarea) {
-      updateItemLabelHeight(li, textarea);
+    refreshItemLabelSizing(textarea);
+    if (document.activeElement === textarea && li.classList.contains("can-expand")) {
+      li.classList.add("is-open");
     }
   });
   textarea.addEventListener("blur", () => {
@@ -169,7 +192,9 @@ function setupItemLabel(li, textarea, item) {
     } else {
       textarea.value = item.name;
     }
-    updateItemLabelHeight(li, textarea);
+    refreshItemLabelSizing(textarea);
+    clearExpandTimer(li);
+    if (!li.matches(":hover")) li.classList.remove("is-open");
   });
   textarea.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -239,11 +264,14 @@ function renderCurrentView({ rebuildItems = true } = {}) {
       toggleItem(item.id, isChecked);
     });
 
-    setupItemLabel(li, label, item);
-
     li.querySelector(".btn-delete-item").addEventListener("click", () => deleteItem(item.id));
 
     list.appendChild(li);
+    setupItemLabel(li, label, item);
+  });
+
+  requestAnimationFrame(() => {
+    $$("#items-list .item-label").forEach(refreshItemLabelSizing);
   });
 }
 
@@ -643,4 +671,52 @@ $("#btn-delete-task").addEventListener("click", deleteCurrentTask);
 $("#btn-prev-task").addEventListener("click", () => navigateTask(-1));
 $("#btn-next-task").addEventListener("click", () => navigateTask(1));
 
+function setThemePickerOpen(open) {
+  const picker = $("#theme-picker");
+  const btn = $("#theme-picker-btn");
+  const menu = $("#theme-picker-menu");
+  if (!picker || !btn || !menu) return;
+  picker.classList.toggle("is-open", open);
+  btn.setAttribute("aria-expanded", String(open));
+  menu.hidden = !open;
+}
+
+function updateThemePickerActive(theme) {
+  $$(".theme-picker-option").forEach((opt) => {
+    const isActive = opt.dataset.theme === theme;
+    opt.classList.toggle("active", isActive);
+    opt.setAttribute("aria-selected", String(isActive));
+  });
+}
+
+function applyTheme(name) {
+  document.documentElement.dataset.theme = name;
+  localStorage.setItem(THEME_KEY, name);
+  updateThemePickerActive(name);
+}
+
+function initThemePicker() {
+  const saved = localStorage.getItem(THEME_KEY) || "dark";
+  applyTheme(saved);
+
+  $("#theme-picker-btn")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setThemePickerOpen(!$("#theme-picker")?.classList.contains("is-open"));
+  });
+
+  $$(".theme-picker-option").forEach((opt) => {
+    opt.addEventListener("click", (e) => {
+      e.stopPropagation();
+      applyTheme(opt.dataset.theme);
+      setThemePickerOpen(false);
+    });
+  });
+
+  document.addEventListener("click", () => setThemePickerOpen(false));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setThemePickerOpen(false);
+  });
+}
+
+initThemePicker();
 loadTasks();
