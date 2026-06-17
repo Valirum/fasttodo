@@ -231,8 +231,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="FastTodo")
     parser.add_argument(
         "--host",
-        default="0.0.0.0",
-        help="адрес привязки: 0.0.0.0 — все интерфейсы, 127.0.0.1 — только localhost",
+        default="127.0.0.1",
+        help="адрес привязки: 127.0.0.1 — только localhost (по умолчанию), "
+        "0.0.0.0 — все интерфейсы",
     )
     parser.add_argument(
         "--port",
@@ -240,5 +241,19 @@ if __name__ == "__main__":
         default=5000,
         help="порт (по умолчанию 5000)",
     )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="включить режим отладки Flask (НЕ использовать на публичных адресах: "
+        "Werkzeug debugger допускает выполнение произвольного кода)",
+    )
     args = parser.parse_args()
-    app.run(debug=True, host=args.host, port=args.port)
+
+    if args.debug and args.host not in ("127.0.0.1", "localhost", "::1"):
+        parser.error(
+            "--debug запрещён при привязке к публичному адресу "
+            f"({args.host}): debug-консоль Werkzeug допускает RCE. "
+            "Используйте --host 127.0.0.1 для отладки."
+        )
+
+    app.run(debug=args.debug, host=args.host, port=args.port)
