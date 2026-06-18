@@ -54,7 +54,8 @@
 .theme-picker-menu {
   position: absolute;
   top: calc(100% + 6px);
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   min-width: 9rem;
   margin: 0;
   padding: 4px;

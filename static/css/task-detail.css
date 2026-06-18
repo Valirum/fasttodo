@@ -67,15 +67,41 @@
 
 .task-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 0.75rem;
   margin-bottom: 1.5rem;
   padding-top: 0.25rem;
+}
+
+.task-title-wrap {
+  flex: 1;
+  min-width: 0;
 }
 
 .task-header h2 {
   font-size: 1.35rem;
   font-weight: 600;
+}
+
+.task-title-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 600;
+  padding: 0.35rem 0.6rem;
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  font-family: inherit;
+}
+
+.task-header-actions {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
 }
 
 .progress-block {
@@ -96,6 +122,7 @@
   font-weight: 700;
   color: var(--accent-light);
   transition: color var(--transition);
+  font-variant-numeric: tabular-nums;
 }
 
 .progress-percent.complete {
@@ -108,13 +135,13 @@
   border-radius: 99px;
   overflow: hidden;
   border: 1px solid var(--border);
+  transform-origin: center center;
 }
 
 .progress-fill {
   height: 100%;
   border-radius: 99px;
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
-  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
 

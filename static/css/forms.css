@@ -48,6 +48,9 @@ input[type="text"]::placeholder {
 }
 
 .btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: 1px solid var(--border);
   color: var(--text-muted);
@@ -57,9 +60,20 @@ input[type="text"]::placeholder {
   cursor: pointer;
   font-size: 0.875rem;
   transition: var(--transition);
+  padding: 0;
 }
 
-.btn-icon:hover {
+.btn-icon .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-icon-edit:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+.btn-icon-danger:hover {
   border-color: var(--danger);
   color: var(--danger);
 }

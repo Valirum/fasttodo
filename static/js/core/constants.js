@@ -1,0 +1,12 @@
+export const STORAGE_KEY = "fasttodo:lastTaskId";
+export const THEME_KEY = "fasttodo:theme";
+export const COLLAPSED_SECTIONS_KEY = "fasttodo:collapsedSections";
+export const EXPAND_DELAY_MS = 500;
+
+export const ICON_TRASH = `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"/><path d="M10 11v6M14 11v6"/></svg>`;
+
+export const ICON_CHEVRON_RIGHT = `<svg class="icon section-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>`;
+
+export const ICON_CHEVRON_DOWN = `<svg class="icon section-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>`;
+
+export const ICON_CHECK = `<svg class="icon task-card-done-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>`;

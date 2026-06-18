@@ -1,0 +1,22 @@
+[data-theme="neon"] {
+  --bg: #0d0221;
+  --surface: #160734;
+  --surface-hover: #1f0a48;
+  --border: #3d1670;
+  --text: #f0e6ff;
+  --text-muted: #9b7ec8;
+  --text-inverse: #ffffff;
+  --accent: #ff2a6d;
+  --accent-light: #ff6b9d;
+  --accent-glow: rgba(255, 42, 109, 0.45);
+  --success: #05d9e8;
+  --success-light: #66f0f7;
+  --success-glow: rgba(5, 217, 232, 0.4);
+  --success-glow-strong: rgba(5, 217, 232, 0.35);
+  --danger: #ff3860;
+  --shadow-sticky: rgba(0, 0, 0, 0.45);
+  --shadow-toast: rgba(0, 0, 0, 0.55);
+  --glow-title: rgba(5, 217, 232, 0.5);
+  --toast-from: rgba(255, 42, 109, 0.95);
+  --toast-to: rgba(5, 217, 232, 0.92);
+}

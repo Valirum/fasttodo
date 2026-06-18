@@ -27,9 +27,25 @@ def init_db():
                 name TEXT NOT NULL,
                 completed INTEGER NOT NULL DEFAULT 0,
                 position INTEGER NOT NULL DEFAULT 0,
+                section_id INTEGER,
+                FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE,
+                FOREIGN KEY (section_id) REFERENCES sections(id) ON DELETE SET NULL
+            );
+
+            CREATE TABLE IF NOT EXISTS sections (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                task_id INTEGER NOT NULL,
+                title TEXT NOT NULL,
+                position INTEGER NOT NULL DEFAULT 0,
                 FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE
             );
         """)
+        item_cols = {r[1] for r in conn.execute("PRAGMA table_info(items)").fetchall()}
+        if "section_id" not in item_cols:
+            conn.execute(
+                "ALTER TABLE items ADD COLUMN section_id INTEGER "
+                "REFERENCES sections(id) ON DELETE SET NULL"
+            )
         cols = {r[1] for r in conn.execute("PRAGMA table_info(tasks)").fetchall()}
         if "position" not in cols:
             conn.execute(

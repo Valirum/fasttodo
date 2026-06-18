@@ -1,0 +1,22 @@
+[data-theme="ocean"] {
+  --bg: #0a1628;
+  --surface: #112240;
+  --surface-hover: #1a3055;
+  --border: #243b5c;
+  --text: #e6f1ff;
+  --text-muted: #7a9cc6;
+  --text-inverse: #0a1628;
+  --accent: #64ffda;
+  --accent-light: #a8fff0;
+  --accent-glow: rgba(100, 255, 218, 0.3);
+  --success: #57cbff;
+  --success-light: #8edcff;
+  --success-glow: rgba(87, 203, 255, 0.4);
+  --success-glow-strong: rgba(87, 203, 255, 0.35);
+  --danger: #ff6b8a;
+  --shadow-sticky: rgba(0, 0, 0, 0.4);
+  --shadow-toast: rgba(0, 0, 0, 0.5);
+  --glow-title: rgba(100, 255, 218, 0.45);
+  --toast-from: rgba(100, 255, 218, 0.95);
+  --toast-to: rgba(87, 203, 255, 0.92);
+}

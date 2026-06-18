@@ -1,0 +1,22 @@
+[data-theme="forest"] {
+  --bg: #0f1810;
+  --surface: #1a2618;
+  --surface-hover: #243320;
+  --border: #354a30;
+  --text: #e8f0e4;
+  --text-muted: #8faa85;
+  --text-inverse: #0f1810;
+  --accent: #c9a227;
+  --accent-light: #e8c547;
+  --accent-glow: rgba(201, 162, 39, 0.35);
+  --success: #4caf50;
+  --success-light: #81c784;
+  --success-glow: rgba(76, 175, 80, 0.4);
+  --success-glow-strong: rgba(76, 175, 80, 0.35);
+  --danger: #d84343;
+  --shadow-sticky: rgba(0, 0, 0, 0.35);
+  --shadow-toast: rgba(0, 0, 0, 0.45);
+  --glow-title: rgba(129, 199, 132, 0.5);
+  --toast-from: rgba(201, 162, 39, 0.95);
+  --toast-to: rgba(76, 175, 80, 0.92);
+}

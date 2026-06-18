@@ -15,14 +15,23 @@
   transition: var(--transition);
   color: inherit;
   overflow: hidden;
+  position: relative;
 }
 
-.task-list-item.dragging {
+.task-list-item {
+  position: relative;
+  list-style: none;
+}
+
+.task-drag-placeholder {
   pointer-events: none;
-}
-
-.task-list-item.dragging .task-card {
-  opacity: 0.45;
+  margin-bottom: 0.75rem;
+  border: 2px dashed var(--accent);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: 0 0 0 1px var(--accent-glow);
+  box-sizing: border-box;
+  transition: height 0.15s ease;
 }
 
 .task-list-item.drag-over .task-card {
@@ -69,6 +78,22 @@
   margin-bottom: 0.6rem;
 }
 
+.task-card .btn-delete-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  opacity: 0;
+}
+
+.task-card .btn-delete-item .icon {
+  width: 15px;
+  height: 15px;
+}
+
 .task-card-progress-row {
   display: flex;
   align-items: center;
@@ -104,6 +129,42 @@
   box-shadow: 0 0 0 1px var(--accent-glow);
 }
 
+.task-card.is-complete {
+  background: color-mix(in srgb, var(--surface) 92%, var(--success) 8%);
+}
+
+.task-card.is-complete .task-card-body {
+  padding-right: 2.25rem;
+}
+
+.task-card.is-complete:hover {
+  border-color: color-mix(in srgb, var(--success) 50%, var(--accent) 50%);
+}
+
+.task-card.is-complete.active {
+  border-color: var(--success);
+  box-shadow: 0 0 0 1px var(--success-glow);
+}
+
+.task-card-ribbon {
+  position: absolute;
+  top: 14px;
+  right: -30px;
+  width: 118px;
+  padding: 0.3rem 0;
+  text-align: center;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-inverse);
+  background: linear-gradient(135deg, var(--success), var(--success-light));
+  transform: rotate(45deg);
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--success) 40%, transparent);
+}
+
 .task-card-track {
   flex: 1;
   height: 6px;
@@ -129,6 +190,11 @@
   color: var(--accent-light);
   min-width: 36px;
   text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.task-card-percent.is-done {
+  color: var(--success-light);
 }
 
 .task-card-meta {

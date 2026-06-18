@@ -1,0 +1,22 @@
+[data-theme="sakura"] {
+  --bg: #1a1418;
+  --surface: #261e24;
+  --surface-hover: #322830;
+  --border: #443a42;
+  --text: #f8eef2;
+  --text-muted: #b09aaa;
+  --text-inverse: #1a1418;
+  --accent: #e8a0b8;
+  --accent-light: #f5c6d6;
+  --accent-glow: rgba(232, 160, 184, 0.35);
+  --success: #9fd4a0;
+  --success-light: #c8ebc9;
+  --success-glow: rgba(159, 212, 160, 0.4);
+  --success-glow-strong: rgba(159, 212, 160, 0.35);
+  --danger: #e87878;
+  --shadow-sticky: rgba(0, 0, 0, 0.35);
+  --shadow-toast: rgba(0, 0, 0, 0.45);
+  --glow-title: rgba(245, 198, 214, 0.5);
+  --toast-from: rgba(232, 160, 184, 0.95);
+  --toast-to: rgba(159, 212, 160, 0.92);
+}
