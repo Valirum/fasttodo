@@ -133,10 +133,6 @@
   background: color-mix(in srgb, var(--surface) 92%, var(--success) 8%);
 }
 
-.task-card.is-complete .task-card-body {
-  padding-right: 2.25rem;
-}
-
 .task-card.is-complete:hover {
   border-color: color-mix(in srgb, var(--success) 50%, var(--accent) 50%);
 }
@@ -188,8 +184,9 @@
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--accent-light);
-  min-width: 36px;
-  text-align: right;
+  flex-shrink: 0;
+  min-width: 2.5rem;
+  text-align: center;
   font-variant-numeric: tabular-nums;
 }
 
