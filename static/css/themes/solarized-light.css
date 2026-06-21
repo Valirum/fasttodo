@@ -1,0 +1,23 @@
+/*! theme: Solarized Light | color: #268bd2 */
+[data-theme="solarized-light"] {
+  --bg: #fdf6e3;
+  --surface: #eee8d5;
+  --surface-hover: #e4ddc8;
+  --border: #d6cdb5;
+  --text: #073642;
+  --text-muted: #657b83;
+  --text-inverse: #fdf6e3;
+  --accent: #268bd2;
+  --accent-light: #1a6faa;
+  --accent-glow: rgba(38, 139, 210, 0.25);
+  --success: #859900;
+  --success-light: #6d7f00;
+  --success-glow: rgba(133, 153, 0, 0.3);
+  --success-glow-strong: rgba(133, 153, 0, 0.25);
+  --danger: #dc322f;
+  --shadow-sticky: rgba(7, 54, 66, 0.1);
+  --shadow-toast: rgba(7, 54, 66, 0.18);
+  --glow-title: rgba(38, 139, 210, 0.35);
+  --toast-from: rgba(38, 139, 210, 0.95);
+  --toast-to: rgba(133, 153, 0, 0.92);
+}

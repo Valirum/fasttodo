@@ -1,0 +1,23 @@
+/*! theme: Gotham | color: #19adc7 */
+[data-theme="gotham"] {
+  --bg: #0a0f14;
+  --surface: #121a22;
+  --surface-hover: #1a2530;
+  --border: #243040;
+  --text: #c5d0db;
+  --text-muted: #6d7f92;
+  --text-inverse: #0a0f14;
+  --accent: #19adc7;
+  --accent-light: #5ec8dc;
+  --accent-glow: rgba(25, 173, 199, 0.35);
+  --success: #98c379;
+  --success-light: #b5d99c;
+  --success-glow: rgba(152, 195, 121, 0.4);
+  --success-glow-strong: rgba(152, 195, 121, 0.35);
+  --danger: #e06c75;
+  --shadow-sticky: rgba(0, 0, 0, 0.45);
+  --shadow-toast: rgba(0, 0, 0, 0.55);
+  --glow-title: rgba(25, 173, 199, 0.45);
+  --toast-from: rgba(25, 173, 199, 0.95);
+  --toast-to: rgba(152, 195, 121, 0.92);
+}

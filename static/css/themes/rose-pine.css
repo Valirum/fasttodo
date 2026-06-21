@@ -1,0 +1,23 @@
+/*! theme: Rosé Pine | color: #c4a7e7 */
+[data-theme="rose-pine"] {
+  --bg: #191724;
+  --surface: #1f1d2e;
+  --surface-hover: #26233a;
+  --border: #403d52;
+  --text: #e0def4;
+  --text-muted: #908caa;
+  --text-inverse: #191724;
+  --accent: #c4a7e7;
+  --accent-light: #dbc4ff;
+  --accent-glow: rgba(196, 167, 231, 0.35);
+  --success: #9ccfd8;
+  --success-light: #b8e4eb;
+  --success-glow: rgba(156, 207, 216, 0.4);
+  --success-glow-strong: rgba(156, 207, 216, 0.35);
+  --danger: #eb6f92;
+  --shadow-sticky: rgba(0, 0, 0, 0.4);
+  --shadow-toast: rgba(0, 0, 0, 0.5);
+  --glow-title: rgba(196, 167, 231, 0.5);
+  --toast-from: rgba(196, 167, 231, 0.95);
+  --toast-to: rgba(156, 207, 216, 0.92);
+}

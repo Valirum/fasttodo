@@ -1,0 +1,23 @@
+/*! theme: Nord | color: #88c0d0 */
+[data-theme="nord"] {
+  --bg: #2e3440;
+  --surface: #3b4252;
+  --surface-hover: #434c5e;
+  --border: #4c566a;
+  --text: #eceff4;
+  --text-muted: #d8dee9;
+  --text-inverse: #2e3440;
+  --accent: #88c0d0;
+  --accent-light: #8fbcbb;
+  --accent-glow: rgba(136, 192, 208, 0.35);
+  --success: #a3be8c;
+  --success-light: #b8d4a3;
+  --success-glow: rgba(163, 190, 140, 0.4);
+  --success-glow-strong: rgba(163, 190, 140, 0.35);
+  --danger: #bf616a;
+  --shadow-sticky: rgba(0, 0, 0, 0.35);
+  --shadow-toast: rgba(0, 0, 0, 0.45);
+  --glow-title: rgba(136, 192, 208, 0.5);
+  --toast-from: rgba(136, 192, 208, 0.95);
+  --toast-to: rgba(163, 190, 140, 0.92);
+}

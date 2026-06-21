@@ -1,0 +1,23 @@
+/*! theme: Tokyo Night | color: #7aa2f7 */
+[data-theme="tokyo-night"] {
+  --bg: #1a1b26;
+  --surface: #24283b;
+  --surface-hover: #2f3549;
+  --border: #3b4261;
+  --text: #c0caf5;
+  --text-muted: #565f89;
+  --text-inverse: #1a1b26;
+  --accent: #7aa2f7;
+  --accent-light: #9eceff;
+  --accent-glow: rgba(122, 162, 247, 0.35);
+  --success: #9ece6a;
+  --success-light: #b9f27c;
+  --success-glow: rgba(158, 206, 106, 0.4);
+  --success-glow-strong: rgba(158, 206, 106, 0.35);
+  --danger: #f7768e;
+  --shadow-sticky: rgba(0, 0, 0, 0.4);
+  --shadow-toast: rgba(0, 0, 0, 0.5);
+  --glow-title: rgba(122, 162, 247, 0.5);
+  --toast-from: rgba(122, 162, 247, 0.95);
+  --toast-to: rgba(158, 206, 106, 0.92);
+}

@@ -1,0 +1,23 @@
+/*! theme: Dracula | color: #bd93f9 */
+[data-theme="dracula"] {
+  --bg: #282a36;
+  --surface: #343746;
+  --surface-hover: #3e4150;
+  --border: #44475a;
+  --text: #f8f8f2;
+  --text-muted: #6272a4;
+  --text-inverse: #282a36;
+  --accent: #bd93f9;
+  --accent-light: #d4b4ff;
+  --accent-glow: rgba(189, 147, 249, 0.35);
+  --success: #50fa7b;
+  --success-light: #7dffb0;
+  --success-glow: rgba(80, 250, 123, 0.35);
+  --success-glow-strong: rgba(80, 250, 123, 0.3);
+  --danger: #ff5555;
+  --shadow-sticky: rgba(0, 0, 0, 0.4);
+  --shadow-toast: rgba(0, 0, 0, 0.5);
+  --glow-title: rgba(189, 147, 249, 0.5);
+  --toast-from: rgba(189, 147, 249, 0.95);
+  --toast-to: rgba(80, 250, 123, 0.92);
+}

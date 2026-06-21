@@ -1,0 +1,23 @@
+/*! theme: Adeptus Mechanicus | color: #b71c1c */
+[data-theme="adeptus-mechanicus"] {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --surface-hover: #1e1e1e;
+  --border: #333333;
+  --text: #d8d8d8;
+  --text-muted: #888888;
+  --text-inverse: #f0f0f0;
+  --accent: #b71c1c;
+  --accent-light: #e53935;
+  --accent-glow: rgba(183, 28, 28, 0.45);
+  --success: #7a1a1a;
+  --success-light: #a83232;
+  --success-glow: rgba(122, 26, 26, 0.45);
+  --success-glow-strong: rgba(122, 26, 26, 0.38);
+  --danger: #ff5252;
+  --shadow-sticky: rgba(0, 0, 0, 0.5);
+  --shadow-toast: rgba(0, 0, 0, 0.6);
+  --glow-title: rgba(229, 57, 53, 0.5);
+  --toast-from: rgba(183, 28, 28, 0.95);
+  --toast-to: rgba(139, 26, 26, 0.92);
+}

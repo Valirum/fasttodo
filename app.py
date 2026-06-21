@@ -1,9 +1,10 @@
 from pathlib import Path
 import argparse
 
-from flask import Flask, jsonify, render_template, request, send_from_directory
+from flask import Flask, Response, jsonify, render_template, request, send_from_directory
 
 from database import get_db, init_db
+from themes import discover_themes, themes_bundle_css
 
 app = Flask(__name__)
 init_db()
@@ -173,6 +174,16 @@ def purge_empty_sections(conn, task_id):
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/api/themes", methods=["GET"])
+def list_themes():
+    return jsonify(discover_themes())
+
+
+@app.route("/api/themes.css")
+def themes_bundle():
+    return Response(themes_bundle_css(), mimetype="text/css")
 
 
 @app.route("/icon.png")

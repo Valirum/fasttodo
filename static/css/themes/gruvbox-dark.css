@@ -1,0 +1,23 @@
+/*! theme: Gruvbox Dark | color: #fe8019 */
+[data-theme="gruvbox-dark"] {
+  --bg: #282828;
+  --surface: #32302f;
+  --surface-hover: #3c3836;
+  --border: #504945;
+  --text: #ebdbb2;
+  --text-muted: #a89984;
+  --text-inverse: #282828;
+  --accent: #fe8019;
+  --accent-light: #fabd2f;
+  --accent-glow: rgba(254, 128, 25, 0.35);
+  --success: #b8bb26;
+  --success-light: #8ec07c;
+  --success-glow: rgba(184, 187, 38, 0.4);
+  --success-glow-strong: rgba(184, 187, 38, 0.35);
+  --danger: #fb4934;
+  --shadow-sticky: rgba(0, 0, 0, 0.35);
+  --shadow-toast: rgba(0, 0, 0, 0.45);
+  --glow-title: rgba(250, 189, 47, 0.5);
+  --toast-from: rgba(254, 128, 25, 0.95);
+  --toast-to: rgba(184, 187, 38, 0.92);
+}

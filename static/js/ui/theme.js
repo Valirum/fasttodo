@@ -1,5 +1,8 @@
-import { THEME_KEY } from "../core/constants.js";
+import { api } from "../api/client.js";
+import { ICON_PALETTE, THEME_KEY } from "../core/constants.js";
 import { $, $$ } from "../core/dom.js";
+
+let themes = [];
 
 function setThemePickerOpen(open) {
   const picker = $("#theme-picker");
@@ -9,6 +12,10 @@ function setThemePickerOpen(open) {
   picker.classList.toggle("is-open", open);
   btn.setAttribute("aria-expanded", String(open));
   menu.hidden = !open;
+}
+
+export function closeThemePicker() {
+  setThemePickerOpen(false);
 }
 
 function updateThemePickerActive(theme) {
@@ -25,22 +32,66 @@ function applyTheme(name) {
   updateThemePickerActive(name);
 }
 
-export function initThemePicker() {
-  const saved = localStorage.getItem(THEME_KEY) || "dark";
-  applyTheme(saved);
+function resolveSavedTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  if (saved && themes.some((t) => t.id === saved)) return saved;
+  if (themes.some((t) => t.id === "dark")) return "dark";
+  return themes[0]?.id ?? "dark";
+}
 
-  $("#theme-picker-btn")?.addEventListener("click", (e) => {
+function renderThemeMenu() {
+  const menu = $("#theme-picker-menu");
+  if (!menu) return;
+
+  menu.innerHTML = "";
+  for (const theme of themes) {
+    const li = document.createElement("li");
+    li.role = "option";
+    li.className = "theme-picker-option";
+    li.dataset.theme = theme.id;
+    li.tabIndex = -1;
+
+    if (theme.color) {
+      li.dataset.color = "";
+      li.style.setProperty("--theme-option-color", theme.color);
+    }
+
+    const label = document.createElement("span");
+    label.className = "theme-picker-option-label";
+    label.textContent = theme.name;
+    li.appendChild(label);
+
+    li.addEventListener("click", (e) => {
+      e.stopPropagation();
+      applyTheme(theme.id);
+      setThemePickerOpen(false);
+    });
+
+    menu.appendChild(li);
+  }
+}
+
+export async function initThemePicker() {
+  themes = await api("/api/themes");
+  renderThemeMenu();
+  applyTheme(resolveSavedTheme());
+
+  const btn = $("#theme-picker-btn");
+  if (btn) btn.innerHTML = ICON_PALETTE;
+
+  btn?.addEventListener("click", (e) => {
     e.stopPropagation();
     setThemePickerOpen(!$("#theme-picker")?.classList.contains("is-open"));
   });
 
-  $$(".theme-picker-option").forEach((opt) => {
-    opt.addEventListener("click", (e) => {
-      e.stopPropagation();
-      applyTheme(opt.dataset.theme);
-      setThemePickerOpen(false);
-    });
-  });
+  if (btn) {
+    new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) closeThemePicker();
+      },
+      { threshold: 0 }
+    ).observe(btn);
+  }
 
   document.addEventListener("click", () => setThemePickerOpen(false));
   document.addEventListener("keydown", (e) => {

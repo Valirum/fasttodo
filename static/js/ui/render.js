@@ -68,10 +68,10 @@ export function renderCurrentView({ rebuildItems = true } = {}) {
     nav.classList.remove("hidden");
     const prevTask = state.tasks[(idx - 1 + n) % n];
     const nextTask = state.tasks[(idx + 1) % n];
-    $("#task-nav-prev-title").textContent = prevTask.title;
-    $("#task-nav-next-title").textContent = nextTask.title;
-    $("#btn-prev-task").title = prevTask.title;
-    $("#btn-next-task").title = nextTask.title;
+    $("#task-nav-prev-title").textContent = nextTask.title;
+    $("#task-nav-next-title").textContent = prevTask.title;
+    $("#btn-prev-task").title = nextTask.title;
+    $("#btn-next-task").title = prevTask.title;
   } else {
     nav.classList.add("hidden");
   }

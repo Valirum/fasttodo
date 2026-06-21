@@ -51,8 +51,8 @@ $("#task-title-input").addEventListener("keydown", (e) => {
   }
 });
 $("#task-title-input").addEventListener("blur", () => finishEditTaskTitle(true));
-$("#btn-prev-task").addEventListener("click", () => navigateTask(-1));
-$("#btn-next-task").addEventListener("click", () => navigateTask(1));
+$("#btn-prev-task").addEventListener("click", () => navigateTask(1));
+$("#btn-next-task").addEventListener("click", () => navigateTask(-1));
 
 initThemePicker();
 loadTasks();

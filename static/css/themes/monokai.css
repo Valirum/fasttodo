@@ -1,0 +1,23 @@
+/*! theme: Monokai | color: #66d9ef */
+[data-theme="monokai"] {
+  --bg: #272822;
+  --surface: #2f302a;
+  --surface-hover: #3b3c35;
+  --border: #49483e;
+  --text: #f8f8f2;
+  --text-muted: #90908a;
+  --text-inverse: #272822;
+  --accent: #66d9ef;
+  --accent-light: #8eeaff;
+  --accent-glow: rgba(102, 217, 239, 0.35);
+  --success: #a6e22e;
+  --success-light: #c2f05a;
+  --success-glow: rgba(166, 226, 46, 0.35);
+  --success-glow-strong: rgba(166, 226, 46, 0.3);
+  --danger: #f92672;
+  --shadow-sticky: rgba(0, 0, 0, 0.4);
+  --shadow-toast: rgba(0, 0, 0, 0.5);
+  --glow-title: rgba(102, 217, 239, 0.5);
+  --toast-from: rgba(102, 217, 239, 0.95);
+  --toast-to: rgba(166, 226, 46, 0.92);
+}

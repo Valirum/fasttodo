@@ -1,0 +1,23 @@
+/*! theme: One Dark | color: #61afef */
+[data-theme="one-dark"] {
+  --bg: #282c34;
+  --surface: #2c323c;
+  --surface-hover: #353b45;
+  --border: #3e4451;
+  --text: #abb2bf;
+  --text-muted: #5c6370;
+  --text-inverse: #282c34;
+  --accent: #61afef;
+  --accent-light: #8cc8ff;
+  --accent-glow: rgba(97, 175, 239, 0.35);
+  --success: #98c379;
+  --success-light: #b5d99c;
+  --success-glow: rgba(152, 195, 121, 0.4);
+  --success-glow-strong: rgba(152, 195, 121, 0.35);
+  --danger: #e06c75;
+  --shadow-sticky: rgba(0, 0, 0, 0.35);
+  --shadow-toast: rgba(0, 0, 0, 0.45);
+  --glow-title: rgba(97, 175, 239, 0.5);
+  --toast-from: rgba(97, 175, 239, 0.95);
+  --toast-to: rgba(152, 195, 121, 0.92);
+}

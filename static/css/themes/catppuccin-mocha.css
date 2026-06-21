@@ -1,0 +1,23 @@
+/*! theme: Catppuccin Mocha | color: #cba6f7 */
+[data-theme="catppuccin-mocha"] {
+  --bg: #1e1e2e;
+  --surface: #313244;
+  --surface-hover: #45475a;
+  --border: #585b70;
+  --text: #cdd6f4;
+  --text-muted: #a6adc8;
+  --text-inverse: #1e1e2e;
+  --accent: #cba6f7;
+  --accent-light: #ddb6ff;
+  --accent-glow: rgba(203, 166, 247, 0.35);
+  --success: #a6e3a1;
+  --success-light: #c6f0c2;
+  --success-glow: rgba(166, 227, 161, 0.35);
+  --success-glow-strong: rgba(166, 227, 161, 0.3);
+  --danger: #f38ba8;
+  --shadow-sticky: rgba(0, 0, 0, 0.4);
+  --shadow-toast: rgba(0, 0, 0, 0.5);
+  --glow-title: rgba(203, 166, 247, 0.5);
+  --toast-from: rgba(203, 166, 247, 0.95);
+  --toast-to: rgba(166, 227, 161, 0.92);
+}

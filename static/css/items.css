@@ -178,6 +178,12 @@
   max-height: var(--label-max-height);
 }
 
+.item.is-drag-collapsed .item-label {
+  height: var(--item-control-size) !important;
+  max-height: var(--item-control-size) !important;
+  transition: none !important;
+}
+
 .item-label:focus {
   background: var(--bg);
 }

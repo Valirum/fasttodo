@@ -1,12 +1,5 @@
 @import url("tokens.css");
-@import url("themes/dark.css");
-@import url("themes/light.css");
-@import url("themes/orange-green.css");
-@import url("themes/sakura.css");
-@import url("themes/ocean.css");
-@import url("themes/sunset.css");
-@import url("themes/neon.css");
-@import url("themes/forest.css");
+@import url("/api/themes.css");
 @import url("base.css");
 @import url("layout.css");
 @import url("task-detail.css");

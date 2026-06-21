@@ -1,0 +1,23 @@
+/*! theme: Everforest | color: #a7c080 */
+[data-theme="everforest"] {
+  --bg: #2d353b;
+  --surface: #343f44;
+  --surface-hover: #3d484d;
+  --border: #4f585e;
+  --text: #d3c6aa;
+  --text-muted: #859289;
+  --text-inverse: #2d353b;
+  --accent: #a7c080;
+  --accent-light: #c0d8a0;
+  --accent-glow: rgba(167, 192, 128, 0.35);
+  --success: #83c092;
+  --success-light: #a0d4b4;
+  --success-glow: rgba(131, 192, 146, 0.4);
+  --success-glow-strong: rgba(131, 192, 146, 0.35);
+  --danger: #e67e80;
+  --shadow-sticky: rgba(0, 0, 0, 0.35);
+  --shadow-toast: rgba(0, 0, 0, 0.45);
+  --glow-title: rgba(167, 192, 128, 0.5);
+  --toast-from: rgba(167, 192, 128, 0.95);
+  --toast-to: rgba(131, 192, 146, 0.92);
+}

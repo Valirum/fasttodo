@@ -1,0 +1,23 @@
+/*! theme: Catppuccin Latte | color: #8839ef */
+[data-theme="catppuccin-latte"] {
+  --bg: #eff1f5;
+  --surface: #e6e9ef;
+  --surface-hover: #dce0e8;
+  --border: #ccd0da;
+  --text: #4c4f69;
+  --text-muted: #6c6f85;
+  --text-inverse: #eff1f5;
+  --accent: #8839ef;
+  --accent-light: #a478e8;
+  --accent-glow: rgba(136, 57, 239, 0.25);
+  --success: #40a02b;
+  --success-light: #5cb84a;
+  --success-glow: rgba(64, 160, 43, 0.3);
+  --success-glow-strong: rgba(64, 160, 43, 0.25);
+  --danger: #d20f39;
+  --shadow-sticky: rgba(76, 79, 105, 0.1);
+  --shadow-toast: rgba(76, 79, 105, 0.18);
+  --glow-title: rgba(136, 57, 239, 0.35);
+  --toast-from: rgba(136, 57, 239, 0.95);
+  --toast-to: rgba(64, 160, 43, 0.92);
+}

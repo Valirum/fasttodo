@@ -1,0 +1,23 @@
+/*! theme: Material | color: #82aaff */
+[data-theme="material"] {
+  --bg: #263238;
+  --surface: #2e3c43;
+  --surface-hover: #37474f;
+  --border: #455a64;
+  --text: #eceff1;
+  --text-muted: #90a4ae;
+  --text-inverse: #263238;
+  --accent: #82aaff;
+  --accent-light: #a8c4ff;
+  --accent-glow: rgba(130, 170, 255, 0.35);
+  --success: #c3e88d;
+  --success-light: #d8f5a8;
+  --success-glow: rgba(195, 232, 141, 0.35);
+  --success-glow-strong: rgba(195, 232, 141, 0.3);
+  --danger: #ff5370;
+  --shadow-sticky: rgba(0, 0, 0, 0.4);
+  --shadow-toast: rgba(0, 0, 0, 0.5);
+  --glow-title: rgba(130, 170, 255, 0.5);
+  --toast-from: rgba(130, 170, 255, 0.95);
+  --toast-to: rgba(195, 232, 141, 0.92);
+}

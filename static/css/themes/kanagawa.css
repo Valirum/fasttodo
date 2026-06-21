@@ -1,0 +1,23 @@
+/*! theme: Kanagawa | color: #7e9cd8 */
+[data-theme="kanagawa"] {
+  --bg: #1f1f28;
+  --surface: #2a2a37;
+  --surface-hover: #363646;
+  --border: #54546d;
+  --text: #dcd7ba;
+  --text-muted: #727169;
+  --text-inverse: #1f1f28;
+  --accent: #7e9cd8;
+  --accent-light: #a3c0f0;
+  --accent-glow: rgba(126, 156, 216, 0.35);
+  --success: #98bb6c;
+  --success-light: #b5d48e;
+  --success-glow: rgba(152, 187, 108, 0.4);
+  --success-glow-strong: rgba(152, 187, 108, 0.35);
+  --danger: #e82424;
+  --shadow-sticky: rgba(0, 0, 0, 0.4);
+  --shadow-toast: rgba(0, 0, 0, 0.5);
+  --glow-title: rgba(126, 156, 216, 0.5);
+  --toast-from: rgba(126, 156, 216, 0.95);
+  --toast-to: rgba(152, 187, 108, 0.92);
+}

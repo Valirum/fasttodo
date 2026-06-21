@@ -158,14 +158,51 @@ export function createItemRow(item, { inSection = false } = {}) {
   return li;
 }
 
+function collapseItemForDrag(li) {
+  clearExpandTimer(li);
+  const label = li.querySelector(".item-label");
+  const wasOpen = li.classList.contains("is-open");
+  const wasFocused = document.activeElement === label;
+  const collapsedForDrag =
+    li.classList.contains("can-expand") && (wasOpen || wasFocused);
+
+  if (collapsedForDrag) {
+    li.classList.add("is-drag-collapsed");
+    li.classList.remove("is-open");
+    if (wasFocused) label.blur();
+    void li.offsetHeight;
+  }
+
+  return { wasOpen, wasFocused, collapsedForDrag };
+}
+
+function restoreItemAfterDrag(li, { wasOpen, wasFocused, collapsedForDrag }) {
+  li.classList.remove("is-drag-collapsed");
+  if (!collapsedForDrag) return;
+
+  const label = li.querySelector(".item-label");
+  if (wasOpen && li.classList.contains("can-expand")) {
+    li.classList.add("is-open");
+  }
+  if (wasFocused) label?.focus();
+}
+
 export function setupItemDrag(li, list) {
   const handle = li.querySelector(".item-drag-handle");
+  const expandState = { wasOpen: false, wasFocused: false, collapsedForDrag: false };
+
   setupPointerDrag(li, handle, {
     listEl: list,
     itemSelector: ".item[data-item-id]",
     placeholderClass: "item drag-placeholder",
     draggingListClass: "is-item-dragging",
     resolveDrop: resolveItemDropTarget,
+    onDragStart: () => {
+      Object.assign(expandState, collapseItemForDrag(li));
+    },
+    onDragEnd: () => {
+      restoreItemAfterDrag(li, expandState);
+    },
     onReorder: async () => {
       const task = getCurrentTask();
       if (!task) return;

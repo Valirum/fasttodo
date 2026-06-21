@@ -56,7 +56,9 @@
   top: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
-  min-width: 9rem;
+  min-width: 11rem;
+  max-height: min(18rem, 60vh);
+  overflow-y: auto;
   margin: 0;
   padding: 4px;
   list-style: none;
@@ -72,6 +74,8 @@
 }
 
 .theme-picker-option {
+  display: flex;
+  align-items: center;
   padding: 0.45rem 0.75rem;
   border-radius: var(--radius-sm);
   font-size: 0.8125rem;
@@ -82,9 +86,21 @@
   user-select: none;
 }
 
+.theme-picker-option[data-color] .theme-picker-option-label {
+  color: var(--theme-option-color);
+}
+
+.theme-picker-option.active .theme-picker-option-label {
+  color: var(--text-inverse);
+}
+
 .theme-picker-option:hover {
   color: var(--text);
   background: var(--surface-hover);
+}
+
+.theme-picker-option:hover .theme-picker-option-label {
+  color: var(--text);
 }
 
 .theme-picker-option.active {
